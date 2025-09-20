@@ -1,0 +1,32 @@
+{
+    "pylint.args": [
+        // "--generated-members=numpy.*,torch.*,trt.*,polars.*,re.*",
+        "--disable=C0103", // invalid-name
+        "--disable=C0114", // missing-module-docstring
+        "--disable=C0115", // missing-class-docstring
+        "--disable=C0116", // missing-function-docstring
+        "--disable=C0200", // consider-using-enumerate
+        "--disable=C0301", // line-too-long
+        "--disable=C0302", // too-many-lines
+        "--disable=C0321", // multiple-statements
+        "--disable=C0411", // wrong-import-order
+        "--disable=C0413", // wrong-import-position
+
+        "--disable=W0104", // pointless-statement
+        "--disable=W0105", // pointless-string-statement
+        "--disable=W0311", // bad-indentation
+        "--disable=W0611", // unused-import
+        "--disable=W1201", // logging-not-lazy
+        "--disable=W1203", // logging-fstring-interpolation
+
+        "--disable=R0201", // no-self-argument
+        "--disable=R0901", // too-many-ancestors
+        "--disable=R0902", // too-many-instance-attributes
+        "--disable=R0903", // too-few-public-methods
+        "--disable=R0913", // too-many-arguments
+        "--disable=R0917", // too-many-positional-arguments
+
+        "--disable=E0401", // import-error
+        "--disable=E0402", // relative-beyond-top-level
+    ],
+}

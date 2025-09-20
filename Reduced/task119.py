@@ -26,7 +26,7 @@ ZERO_BY_TWO=0,2
 TWO_BY_ZERO=2,0
 TWO_BY_TWO=2,2
 THREE_BY_THREE=3,3
-def solve_508bd3b6(I):
+def a(I):
  K=None;E,F=len(I),len(I[0]);C=[list(A)for A in I];O=[(A,B)for A in range(E)for B in range(F)if I[A][B]==2];G=[(A,B)for A in range(E)for B in range(F)if I[A][B]==8]
  if not G or not O:return C
  R={A for(A,B)in O};S={A for(B,A)in O};s=len(R)==E and len(S)>=1;X=len(S)==F and len(R)>=1;from collections import Counter as Y;Z=Y(B-A for(A,B)in G);a=Y(A+B for(A,B)in G);b,U=K,0
@@ -78,4 +78,4 @@ def solve_508bd3b6(I):
   if C[A][B]==0:C[A][B]=3
   A+=H;B+=N
  return C
-def p(g):return solve_508bd3b6(g)
+p=lambda g:a(g)

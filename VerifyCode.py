@@ -22,12 +22,22 @@ from code_golf_utils import load_examples # noqa: E0401
 
 CODE_PATH = "./Code"
 SAMPLES = 400
+START_TASK = 1
+END_TASK = 400
 
 if "ipykernel" not in sys.argv[0]:
     if len(sys.argv) > 1:
         CODE_PATH = sys.argv[1]
     if len(sys.argv) > 2:
-        SAMPLES = int(sys.argv[2])
+        START_TASK = int(sys.argv[2])
+    if len(sys.argv) > 3:
+        END_TASK = int(sys.argv[3])
+    else:
+        # If only one task number given, verify just that task
+        if len(sys.argv) > 2:
+            END_TASK = START_TASK
+
+    SAMPLES = END_TASK - START_TASK + 1
 
 # %%
 def simple_verify_program(task_path, examples, task_number=None):
@@ -98,7 +108,7 @@ if __name__ == "__main__":
 
     # Single-threaded version for safety
     from tqdm import tqdm
-    for task_num in tqdm(range(1, SAMPLES + 1), desc="Verifying tasks"):
+    for task_num in tqdm(range(START_TASK, END_TASK + 1), desc="Verifying tasks"):
         result = verify_single_task(task_num)
         if result is not None:
             failures.append(result)
