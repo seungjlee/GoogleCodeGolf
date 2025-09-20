@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # pylint: disable=missing-function-docstring
 # pylint: disable=missing-module-docstring
 # pylint: disable=invalid-name
@@ -19,7 +20,7 @@ from pqdm.processes import pqdm
 sys.path.append("/kaggle/input/google-code-golf-2025/code_golf_utils")
 from code_golf_utils import load_examples # noqa: E0401
 
-CODE_PATH = "./Code/"
+CODE_PATH = "./Code"
 SAMPLES = 400
 
 if "ipykernel" not in sys.argv[0]:
@@ -92,12 +93,15 @@ def verify_single_task(task_number):
         # Return task number if there's any error (treat as failure)
         return task_number
 
-failures = []
+if __name__ == "__main__":
+    failures = []
 
-# pqdm version (clean parallel processing with progress bar)
-results = pqdm(range(1, SAMPLES + 1), verify_single_task, n_jobs=4, desc="Verifying tasks")
-failures = [result for result in results if result is not None]
-failures.sort()
+    # Single-threaded version for safety
+    from tqdm import tqdm
+    for task_num in tqdm(range(1, SAMPLES + 1), desc="Verifying tasks"):
+        result = verify_single_task(task_num)
+        if result is not None:
+            failures.append(result)
 
 # ProcessPoolExecutor version for comparison
 # with ProcessPoolExecutor(max_workers=4) as executor:
@@ -120,6 +124,6 @@ failures.sort()
 #     if result is not None:
 #         failures.append(result)
 
-print(f"Failures: {failures}")
+    print(f"Failures: {failures}")
 
 # %%
