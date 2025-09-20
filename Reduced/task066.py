@@ -1,4 +1,4 @@
-_A=None
+_A=None;m=min
 from typing import List,Tuple,Optional
 from copy import deepcopy
 Point=Tuple[int,int]
@@ -23,12 +23,12 @@ def comp_4_connected(g,positions):
 				if(B,C)in A:A.remove((B,C));D.append((B,C));G.append((B,C))
 		E.append(G)
 	return E
-def closest_goal_distance(goals,p):A=goals;return min(manhattan(p,A)for A in A)if A else 10**9
+def closest_goal_distance(goals,p):A=goals;return m(manhattan(p,A)for A in A)if A else 10**9
 def is_free_for_path(val):return val==BG or val==GREEN
 def choose_start_and_dir(g,greens,reds):
 	F=greens
 	if not F or not reds:return
-	M=comp_4_connected(g,F);E=min(M,key=lambda comp:(len(comp),closest_goal_distance(reds,(round(sum(A for(A,B)in comp)/len(comp)),round(sum(A for(B,A)in comp)/len(comp))))));B=_A;N=set(E)
+	M=comp_4_connected(g,F);E=m(M,key=lambda comp:(len(comp),closest_goal_distance(reds,(round(sum(A for(A,B)in comp)/len(comp)),round(sum(A for(B,A)in comp)/len(comp))))));B=_A;N=set(E)
 	for(G,H)in E:
 		for(I,J)in neighbors4(G,H):
 			if(I,J)in N:B=(G,H),(I,J);break
@@ -40,7 +40,7 @@ def choose_start_and_dir(g,greens,reds):
 				A=manhattan(C,D)
 				if A>L:K=C,D;L=A
 		B=K
-	C,D=B;A=norm1(sub(D,C));O=[(D,A),(C,(-A[0],-A[1]))];return min(O,key=score)
+	C,D=B;A=norm1(sub(D,C));O=[(D,A),(C,(-A[0],-A[1]))];return m(O,key=score)
 class RunInfo:
 	__slots__='pred','path','steps','dmin','dend','bounces','start','start_dir'
 	def __init__(A,pred,path,steps,dmin,dend,bounces,start,start_dir):A.pred=pred;A.path=path;A.steps=steps;A.dmin=dmin;A.dend=dend;A.bounces=bounces;A.start=start;A.start_dir=start_dir
@@ -76,12 +76,12 @@ def run_with_start(g,start,d,reds):
 					if E in G:break
 					G.add(E);L+=1
 				else:break
-		N.append(A);S=closest_goal_distance(J,A);H=min(H,S);O=S
+		N.append(A);S=closest_goal_distance(J,A);H=m(H,S);O=S
 	return RunInfo(C,N,K,H,O,L,M,d)
 def dual_start_solver(g):
 	D=find_positions(g,RED);G=find_positions(g,GREEN)
 	if not D or not G:return deepcopy(g)
-	P=comp_4_connected(g,G);E=min(P,key=lambda comp:(len(comp),closest_goal_distance(D,(round(sum(A for(A,B)in comp)/len(comp)),round(sum(A for(B,A)in comp)/len(comp))))));A=_A;Q=set(E)
+	P=comp_4_connected(g,G);E=m(P,key=lambda comp:(len(comp),closest_goal_distance(D,(round(sum(A for(A,B)in comp)/len(comp)),round(sum(A for(B,A)in comp)/len(comp))))));A=_A;Q=set(E)
 	for(H,I)in E:
 		for(J,K)in neighbors4(H,I):
 			if(J,K)in Q:A=(H,I),(J,K);break
@@ -102,7 +102,7 @@ def detect_and_solve_top_bridge_refined(g):
 	(I,F),(J,P)=sorted(E);(K,G),(L,P)=sorted(D)
 	if{I,J}!={K,L}:return
 	M,N=sorted([F,G]);C=_A
-	for A in range(0,min(I,K)+1):
+	for A in range(0,m(I,K)+1):
 		if all(g[A][B]in(BG,GREEN,RED)for B in range(M,N+1)):C=A;break
 	if C is _A or C==0:return
 	B=deepcopy(g);Q=max(J,L)

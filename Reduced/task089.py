@@ -1,3 +1,4 @@
+R=range
 "Task 089: Compact non-DSL solution for ARC task 3e980e27.\n\nBehavior summary:\n- Find diagonal-connected objects of non-background pixels.\n- For color 2 and color 3 separately:\n  - Take the largest object that contains that color, vertically mirror it,\n    and normalize it so the upper-left of that color's pixels is at (0,0).\n  - Paste this template at the center of every other object that contains\n    that color.\n- Paint all pasted templates onto the original grid.\n"
 from collections import deque
 from typing import Iterable,List,Tuple
@@ -15,9 +16,9 @@ def neighbors8(i,j):
 			if A==0 and B==0:continue
 			yield(i+A,j+B)
 def objects_diag_nonbg(grid):
-	A=grid;G,H=len(A),len(A[0]);L=mostcolor(A);D=[[False]*H for A in range(G)];M=[]
-	for E in range(G):
-		for F in range(H):
+	A=grid;G,H=len(A),len(A[0]);L=mostcolor(A);D=[[False]*H for A in R(G)];M=[]
+	for E in R(G):
+		for F in R(H):
 			if D[E][F]or A[E][F]==L:continue
 			N=[];I=deque([(E,F)]);D[E][F]=True
 			while I:

@@ -1,5 +1,6 @@
+E=enumerate
 def p(u):
- e,t,*o={(p,m):v for p,u in enumerate(u)for m,v in enumerate(u)if v},[]
+ e,t,*o={(p,m):v for p,u in E(u)for m,v in E(u)if v},[]
  def p(u):
   if u in e:r[u]=e.pop(u);p((u[0]-1,u[1]));p((u[0]+1,u[1]));p((u[0],u[1]-1));p((u[0],u[1]+1))
  while e:o+=[r:={}];p(min(e))
