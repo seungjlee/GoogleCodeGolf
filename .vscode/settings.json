@@ -28,5 +28,7 @@
 
         "--disable=E0401", // import-error
         "--disable=E0402", // relative-beyond-top-level
+
+        "--disable=C0304", // missing-final-newline
     ],
 }
