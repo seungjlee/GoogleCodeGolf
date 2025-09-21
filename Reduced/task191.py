@@ -1,42 +1,44 @@
+R=range
+W=enumerate
+T=tuple
 def s(I):
- A=I;K,L=len(A),len(A[0])
- def M(grid,val):return{(A,C)for(A,B)in enumerate(grid)for(C,D)in enumerate(B)if D==val}
- def G(coords):A=coords;B=min(A for(A,B)in A);C=min(A for(B,A)in A);return B,C
- def a(coords):
-  A=coords
-  if not A:return 0,0,-1,-1
-  B=min(A for(A,B)in A);C=max(A for(A,B)in A);D=min(A for(B,A)in A);E=max(A for(B,A)in A);return B,D,C,E
- def b(grid):return tuple(tuple(A)for A in zip(*grid[::-1]))
- def c(grid):return tuple(tuple(A[::-1])for A in grid[::-1])
- def d(grid):return tuple(tuple(A[::-1])for A in zip(*grid[::-1]))[::-1]
+ a=I;K,L=len(a),len(a[0])
+ def M(grid,val):return{(a,C)for(a,B)in W(grid)for(C,D)in W(B)if D==val}
+ def G(coords):a=coords;B=min(a for(a,B)in a);C=min(a for(B,a)in a);return B,C
+ def A(coords):
+  a=coords
+  if not a:return 0,0,-1,-1
+  B=min(a for(a,B)in a);C=max(a for(a,B)in a);D=min(a for(B,a)in a);E=max(a for(B,a)in a);return B,D,C,E
+ def b(grid):return T(T(a)for a in zip(*grid[::-1]))
+ def c(grid):return T(T(a[::-1])for a in grid[::-1])
+ def d(grid):return T(T(a[::-1])for a in zip(*grid[::-1]))[::-1]
  def N(coords):
-  A=coords
-  if not A:return set()
-  B,C=G(A);return{(A-B,D-C)for(A,D)in A}
+  a=coords
+  if not a:return set()
+  B,C=G(a);return{(a-B,D-C)for(a,D)in a}
  def e(coords):
-  A=coords
-  if not A:return 0,0
-  B,C,D,E=a(A);return D-B+1,E-C+1
+  a=coords
+  if not a:return 0,0
+  B,C,D,E=A(a);return D-B+1,E-C+1
  def f(grid,val,coords):
-  A=[list(A)for A in grid]
+  a=[list(a)for a in grid]
   for(B,C)in coords:
-   if 0<=B<K and 0<=C<L:A[B][C]=val
-  return tuple(tuple(A)for A in A)
- B=M(A,1);g=M(A,4)
- if not B:return A
- O=min(A for(A,B)in B);h=max(A for(A,B)in B);P=min(A for(B,A)in B);i=max(A for(B,A)in B);Q=O,P;C=tuple(tuple(A[B][P:i+1])for B in range(O,h+1));H=[C,b(C),c(C),d(C)]
- def j(grid):return tuple(tuple(A[::-1])for A in grid)
- H+=[j(A)for A in H];R=set()
+   if 0<=B<K and 0<=C<L:a[B][C]=val
+  return T(T(a)for a in a)
+ B=M(a,1);g=M(a,4)
+ if not B:return a
+ O=min(a for(a,B)in B);h=max(a for(a,B)in B);P=min(a for(B,a)in B);i=max(a for(B,a)in B);C=T(T(a[B][P:i+1])for B in R(O,h+1));H=[C,b(C),c(C),d(C)]
+ def j(grid):return T(T(a[::-1])for a in grid)
+ H+=[j(a)for a in H];r=set()
  for S in H:
-  D={(A,C)for(A,B)in enumerate(S)for(C,D)in enumerate(B)if D==4};J={(A,C)for(A,B)in enumerate(S)for(C,D)in enumerate(B)if D==1};k=g;T=G(D)if D else(0,0);U=G(J)if J else(0,0);l=U[0]-T[0];m=U[1]-T[1];V=N(D);n=N(J);W,X=e(V);Y=K-W+1;Z=L-X+1
+  D={(a,C)for(a,B)in W(S)for(C,D)in W(B)if D==4};J={(a,C)for(a,B)in W(S)for(C,D)in W(B)if D==1};k=g;t=G(D)if D else(0,0);U=G(J)if J else(0,0);l=U[0]-t[0];m=U[1]-t[1];V=N(D);n=N(J);w,X=e(V);Y=K-w+1;Z=L-X+1
   if Y<0 or Z<0:continue
-  for E in range(Y):
-   for F in range(Z):
-    o={(A+E,B+F)for(A,B)in V};p={(A,B)for(A,B)in k if E<=A<E+W and F<=B<F+X}
-    if p==o:q={(A+E+l,B+F+m)for(A,B)in n};R.update(q)
- r=f(A,1,R);return r
-def t(grid):
- A=grid
- if isinstance(A,tuple):return[list(A)for A in A]
- return A
-p=lambda g:t(s(g))
+  for E in R(Y):
+   for F in R(Z):
+    o={(a+E,B+F)for(a,B)in V};p={(a,B)for(a,B)in k if E<=a<E+w and F<=B<F+X}
+    if p==o:q={(a+E+l,B+F+m)for(a,B)in n};r.update(q)
+ return f(a,1,r)
+def p(g):
+ a=s(g)
+ if isinstance(a,T):return[list(a)for a in a]
+ return a

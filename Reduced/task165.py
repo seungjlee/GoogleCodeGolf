@@ -1,7 +1,8 @@
+t=range;u=len;v=sorted
 def p(j):
- d=True;from collections import Counter as e,deque;N,V=len(j),len(j[0]);F=e(B for A in j for B in A).most_common(1)[0][0];R=[[0]*V for A in range(N)];O=[]
- for G in range(N):
-  for H in range(V):
+ d=1;from collections import Counter as e,deque;N,V=u(j),u(j[0]);F=e(B for A in j for B in A).most_common(1)[0][0];R=[[0]*V for A in t(N)];O=[]
+ for G in t(N):
+  for H in t(V):
    if R[G][H]or j[G][H]==F:continue
    S=j[G][H];W=deque([(G,H)]);R[G][H]=1;T=[(G,H)]
    while W:
@@ -10,10 +11,10 @@ def p(j):
      for g in(-1,0,1):
       if f==g==0:continue
       I,J=C+f,A+g
-      if 0<=I<N and 0<=J<V and not R[I][J]and j[I][J]==S:R[I][J]=1;W.append((I,J));T.append((I,J))
-   h=[A for(A,B)in T];K=[A for(B,A)in T];O.append((S,T,(min(h),min(K),max(h),max(K))))
+      if 0<=I<N and 0<=J<V and not R[I][J]and j[I][J]==S:R[I][J]=1;W+=[(I,J)];T+=[(I,J)]
+   h=[A for(A,B)in T];K=[A for(B,A)in T];O+=[(S,T,(min(h),min(K),max(h),max(K)))]
  if not O:return j
- O.sort(key=lambda t:len(t[1]),reverse=d);X=O[0];Y=O[1:]
+ O.sort(key=lambda x:u(x[1]),reverse=d);X=O[0];Y=O[1:]
  if not Y:return j
  o,p,q,r=X[2];Z=e(A for(A,B,__)in Y).most_common(1)[0][0];P={};l=set()
  for(C,A)in X[1]:
@@ -22,7 +23,7 @@ def p(j):
   else:P[C]=A,A
  m,i=set(),{}
  for(C,(a,B))in P.items():
-  for A in range(a+1,B):
+  for A in t(a+1,B):
    if j[C][A]==F:m.add(A);i[A]=i.get(A,0)+1
  U={}
  for(C,A)in X[1]:U.setdefault(A,[]).append(C)
@@ -36,24 +37,24 @@ def p(j):
  for(D,E)in U.items():
   k=b.get(D)
   if not k or k[-1]<E[-1]:continue
-  Q=False;L=E[0]
+  Q=0;L=E[0]
   for M in E[1:]:
    if M-L>1:
-    for B in range(L+1,M):
+    for B in t(L+1,M):
      if j[B][D]==F:Q=d;break
     if Q:break
    L=M
   if not Q:
-   for B in range(E[-1]+1,N):
+   for B in t(E[-1]+1,N):
     if j[B][D]==F:Q=d;break
-  if Q:c.append(D)
+  if Q:c+=[D]
  if not c:return j
- for D in sorted(c):
+ for D in v(c):
   E=U[D];L=E[0]
   for M in E[1:]:
-   for B in range(L+1,M):
+   for B in t(L+1,M):
     if j[B][D]==F:j[B][D]=Z
    L=M
-  for B in range(E[-1]+1,N):
+  for B in t(E[-1]+1,N):
    if j[B][D]==F:j[B][D]=Z
  return j

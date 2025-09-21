@@ -11,6 +11,7 @@
         "--disable=C0321", // multiple-statements
         "--disable=C0411", // wrong-import-order
         "--disable=C0413", // wrong-import-position
+        "--disable=C0415", // import-outside-toplevel
 
         "--disable=W0104", // pointless-statement
         "--disable=W0105", // pointless-string-statement
