@@ -10,15 +10,15 @@ def p(g):
     C,D=i+A,j+B
     if 0<=C<H and 0<=D<I:yield(C,D)
  def b(g):
-  A=g;P=Q(A);J,K=L(A),L(A[0]);D=set();l=[]
+  A=g;P=Q(A);J,K=L(A),L(A[0]);D={*()};l=[]
   for E in R(J):
    for F in R(K):
     if(E,F)in D:continue
     G=A[E][F]
     if G==P:continue
-    H=set();I={(E,F)}
+    H={*()};I={(E,F)}
     while I:
-     M=set()
+     M={*()}
      for(B,C)in I:
       if(B,C)in D:continue
       W=A[B][C]
@@ -40,7 +40,7 @@ def p(g):
  for V in R(l+1,H):
   if any(B[V][A]!=s for A in R(I)):E=V
   elif E>=l:break
- F=set();M=D[0][0]
+ F={*()};M=D[0][0]
  for(K,A)in D:
   if C(A)<=E:F.update(A)
   else:break

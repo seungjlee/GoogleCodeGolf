@@ -1,35 +1,36 @@
 R=range
 W=enumerate
 T=tuple
+z=len
 def s(I):
- a=I;K,L=len(a),len(a[0])
- def M(grid,val):return{(a,C)for(a,B)in W(grid)for(C,D)in W(B)if D==val}
- def G(coords):a=coords;B=min(a for(a,B)in a);C=min(a for(B,a)in a);return B,C
- def A(coords):
-  a=coords
+ a=I;K,L=z(a),z(a[0])
+ def M(g,v):return{(a,C)for(a,B)in W(g)for(C,D)in W(B)if D==v}
+ def G(c):a=c;B=min(a for(a,B)in a);C=min(a for(B,a)in a);return B,C
+ def A(c):
+  a=c
   if not a:return 0,0,-1,-1
   B=min(a for(a,B)in a);C=max(a for(a,B)in a);D=min(a for(B,a)in a);E=max(a for(B,a)in a);return B,D,C,E
- def b(grid):return T(T(a)for a in zip(*grid[::-1]))
- def c(grid):return T(T(a[::-1])for a in grid[::-1])
- def d(grid):return T(T(a[::-1])for a in zip(*grid[::-1]))[::-1]
- def N(coords):
-  a=coords
-  if not a:return set()
+ def b(g):return T(T(a)for a in zip(*g[::-1]))
+ def c(g):return T(T(a[::-1])for a in g[::-1])
+ def d(g):return T(T(a[::-1])for a in zip(*g[::-1]))[::-1]
+ def N(c):
+  a=c
+  if not a:return{*()}
   B,C=G(a);return{(a-B,D-C)for(a,D)in a}
- def e(coords):
-  a=coords
+ def e(c):
+  a=c
   if not a:return 0,0
   B,C,D,E=A(a);return D-B+1,E-C+1
- def f(grid,val,coords):
-  a=[list(a)for a in grid]
-  for(B,C)in coords:
-   if 0<=B<K and 0<=C<L:a[B][C]=val
+ def f(g,v,c):
+  a=[list(a)for a in g]
+  for(B,C)in c:
+   if 0<=B<K and 0<=C<L:a[B][C]=v
   return T(T(a)for a in a)
  B=M(a,1);g=M(a,4)
  if not B:return a
  O=min(a for(a,B)in B);h=max(a for(a,B)in B);P=min(a for(B,a)in B);i=max(a for(B,a)in B);C=T(T(a[B][P:i+1])for B in R(O,h+1));H=[C,b(C),c(C),d(C)]
- def j(grid):return T(T(a[::-1])for a in grid)
- H+=[j(a)for a in H];r=set()
+ def j(g):return T(T(a[::-1])for a in g)
+ H+=[j(a)for a in H];r={*()}
  for S in H:
   D={(a,C)for(a,B)in W(S)for(C,D)in W(B)if D==4};J={(a,C)for(a,B)in W(S)for(C,D)in W(B)if D==1};k=g;t=G(D)if D else(0,0);U=G(J)if J else(0,0);l=U[0]-t[0];m=U[1]-t[1];V=N(D);n=N(J);w,X=e(V);Y=K-w+1;Z=L-X+1
   if Y<0 or Z<0:continue

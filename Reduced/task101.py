@@ -40,7 +40,7 @@ def S(I):
  C={}
  for x in I:
   for D in x:C[D]=C.get(D,0)+1
- z=max(C,key=C.get);E=c8(I,z)
+ z=X(C,key=C.get);E=c8(I,z)
  if not E:return I
  E.sort(key=lambda c:l({A for(A,B)in c}),reverse=1);L=E[0];T=N(L);x=Q(A for(A,B)in L);M=X(x.items(),key=lambda kv:(kv[1],-kv[0]))[0];F=[]
  for V in(1,2,3):
@@ -51,7 +51,7 @@ def S(I):
    if not K:continue
    A={A for(B,A)in K};J=K|{(0,A)for A in oi(A)};B=oc(I,J)
   if not B:continue
-  W=min(A for(A,B)in A);y=min(A for(B,A)in A)
+  W=m(A for(A,B)in A);y=m(A for(B,A)in A)
   for(Y,Z)in B:a,b=Y-W+1,Z-y+1;F+=([{(A,(B+a,C+b))for(A,(B,C))in G}])
  if not F:return I
  c,d=l(I),l(I[0]);n=[t(A)for A in I]

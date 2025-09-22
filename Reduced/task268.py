@@ -69,7 +69,7 @@ def p(I):
   for(B,C)in dn(loc):
    if 0<=B<L and 0<=C<F and AA[B][C]==0:A+=1
   return A==2
- def m(idxs,loc):return any((A,B)in idxs for(A,B)in dn(loc))
+ def m(i,l):return any((A,B)in i for(A,B)in dn(l))
  AC=[A for A in U if AB(A)and m(S,A)and m(Y,A)];n=set()
  for v in l:
   for o in AC:p=o[0]-v[0],o[1]-v[1];AD=v[0]+42*p[0],v[1]+42*p[1];n|=cn(v,AD)

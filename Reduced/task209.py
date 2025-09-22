@@ -1,3 +1,4 @@
+W=isinstance
 from collections import Counter as CU,deque
 def p(g):
  m=0;D=1;C=None;z=len;r=range
@@ -10,17 +11,17 @@ def p(g):
    for H in r(F):
     T=G[B][H]
     if K and T==Q or A[B][H]:continue
-    L=[];M=[(B,H)];A[B][H]=D;V=T
+    L=[];M=[(B,H)];A[B][H]=D;v=T
     while M:
      N,O=M.pop();P=G[N][O]
-     if u and P!=V or K and P==Q:continue
+     if u and P!=v or K and P==Q:continue
      L+=[(P,(N,O))]
-     for(W,X)in S:
-      I,J=N+W,O+X
+     for(w,X)in S:
+      I,J=N+w,O+X
       if 0<=I<E and 0<=J<F and not A[I][J]:A[I][J]=D;M+=[(I,J)]
     if L:R+=[L]
   return R
- def G(x):A=x;return[A for(B,A)in A]if A and isinstance(A[0],tuple)and isinstance(A[0][1],tuple)else list(A)
+ def G(x):A=x;return[A for(B,A)in A]if A and W(A[0],tuple)and W(A[0][1],tuple)else list(A)
  def R(x):return min(A for(B,A)in G(x))
  def A4(x):return max(A for(B,A)in G(x))
  def S(x):return min(A for(A,B)in G(x))
@@ -50,7 +51,7 @@ def p(g):
    if 0<=B<z(A)and 0<=C<z(A[0]):A[B][C]=D
   return A
  def A9(x,G):A=x;B,C=n(A);D,E=L(A),K(A);return[G[A][C:C+E]for A in r(B,B+D)]
- def p(x):
+ def V(x):
   D={}
   for(E,(B,C))in x:
    if E in(0,4):continue
@@ -62,7 +63,7 @@ def p(g):
   return D
  def q(a,b):return(a+b-1)//b if b>0 else 0
  def AA(l,b,i):
-  F=b;E=l;G=p(E);Y=CU(A for(A,B)in E if A not in(0,4));H=[A for A in G if A in F]
+  F=b;E=l;G=V(E);Y=CU(A for(A,B)in E if A not in(0,4));H=[A for A in G if A in F]
   if not H:return
   I,J=[],[];A=[];K=[]
   for B in H:
@@ -75,18 +76,18 @@ def p(g):
     K+=[C]
   U=I+J+K;D=max(U)if U else 0
   if D<=0:return
-  V=[C-A*D for(A,B,C,B)in A];W=[C-B*D for(A,B,A,C)in A];g=min(V)if V else 0;h=min(W)if W else 0;return D,(g,h),A
+  v=[C-A*D for(A,B,C,B)in A];w=[C-B*D for(A,B,A,C)in A];g=min(v)if v else 0;h=min(w)if w else 0;return D,(g,h),A
  U=[A[:]for A in g]
  for a in r(E):
   for s in r(F):
    if U[a][s]==4:U[a][s]=0
- M=A3(U,m,D,D);AB=[(0,(A,B))for A in r(E)for B in r(F)if g[A][B]==4];B=A9(AB,g);AC=max(map(T,M))if M else 0;AD=[A for A in M if T(A)==AC]or M;H=[[0 if A==4 else A for A in A]for A in B];V,W=(z(H),z(H[0]))if H and H[0]else(0,0)
+ M=A3(U,m,D,D);AB=[(0,(A,B))for A in r(E)for B in r(F)if g[A][B]==4];B=A9(AB,g);AC=max(map(T,M))if M else 0;AD=[A for A in M if T(A)==AC]or M;H=[[0 if A==4 else A for A in A]for A in B];v,w=(z(H),z(H[0]))if H and H[0]else(0,0)
  def AE(Gc):
   A=Gc
   if not A or not A[0]:return[]
-  J=CU(B for A in A for B in A).most_common(1)[0][0];I=[[m]*W for A in r(V)];M=[]
-  for E in r(V):
-   for F in r(W):
+  J=CU(B for A in A for B in A).most_common(1)[0][0];I=[[m]*w for A in r(v)];M=[]
+  for E in r(v):
+   for F in r(w):
     if I[E][F]or A[E][F]==J:continue
     N=A[E][F];K,L=deque([(E,F)]),[];I[E][F]=D
     while K:
@@ -95,13 +96,12 @@ def p(g):
      L+=[(A[G][H],(G,H))]
      for(P,Q)in((1,0),(-1,0),(0,1),(0,-1)):
       B,C=G+P,H+Q
-      if 0<=B<V and 0<=C<W and not I[B][C]:
+      if 0<=B<v and 0<=C<w and not I[B][C]:
        if A[B][C]==N and A[B][C]!=J:I[B][C]=D;K+=[(B,C)]
     if L:M+=[L]
   return M
- A=A6(AE(H));AY=set(G(A));AF,AG=(K(A),L(A))if A else(0,0);AH,AI=n(A)if A else(0,0);AJ=p(A);AL=CU(A for(A,B)in A);X={(B,C):A for(A,(B,C))in A}
- def Y(o,m):
-  B=m;A=o
+ A=A6(AE(H));AF,AG=(K(A),L(A))if A else(0,0);AH,AI=n(A)if A else(0,0);AJ=V(A);AL=CU(A for(A,B)in A);X={(B,C):A for(A,(B,C))in A}
+ def Y(A,B):
   if B<0:return 0
   if A<0:return 0
   if A>B:return B

@@ -1,4 +1,4 @@
-t=range;u=len;v=sorted
+t=range;u=len;v=sorted;w=min;y=max
 def p(j):
  d=1;from collections import Counter as e,deque;N,V=u(j),u(j[0]);F=e(B for A in j for B in A).most_common(1)[0][0];R=[[0]*V for A in t(N)];O=[]
  for G in t(N):
@@ -12,16 +12,16 @@ def p(j):
       if f==g==0:continue
       I,J=C+f,A+g
       if 0<=I<N and 0<=J<V and not R[I][J]and j[I][J]==S:R[I][J]=1;W+=[(I,J)];T+=[(I,J)]
-   h=[A for(A,B)in T];K=[A for(B,A)in T];O+=[(S,T,(min(h),min(K),max(h),max(K)))]
+   h=[A for(A,B)in T];K=[A for(B,A)in T];O+=[(S,T,(w(h),w(K),y(h),y(K)))]
  if not O:return j
  O.sort(key=lambda x:u(x[1]),reverse=d);X=O[0];Y=O[1:]
  if not Y:return j
- o,p,q,r=X[2];Z=e(A for(A,B,__)in Y).most_common(1)[0][0];P={};l=set()
+ o,p,q,r=X[2];Z=e(A for(A,B,__)in Y).most_common(1)[0][0];P={};l={*()}
  for(C,A)in X[1]:
   l.add(A)
-  if C in P:a,B=P[C];P[C]=min(a,A),max(B,A)
+  if C in P:a,B=P[C];P[C]=w(a,A),y(B,A)
   else:P[C]=A,A
- m,i=set(),{}
+ m,i={*()},{}
  for(C,(a,B))in P.items():
   for A in t(a+1,B):
    if j[C][A]==F:m.add(A);i[A]=i.get(A,0)+1
