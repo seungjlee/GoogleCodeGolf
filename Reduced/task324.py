@@ -16,8 +16,8 @@ def p(g):
     while U:
      i,j=U.pop();h.add((i,j))
      for(q,r)in n(i,j):
-      if not P[q][r]and C[q][r]==f:P[q][r]=True;U.append((q,r))
-    t.append((f,h))
+      if not P[q][r]and C[q][r]==f:P[q][r]=True;U+=[(q,r)]
+    t+=[(f,h)]
  k=[(B,A)for(B,A)in t if W(A)==1];l=[(B,A)for(B,A)in t if W(A)>1]
  if not l:return[V(A)for A in C]
  v={}
@@ -28,7 +28,7 @@ def p(g):
  r={(A,B)for A in R(I)for B in R(J)if C[A][B]==Y};s=[(1,1),(-1,-1),(1,-1),(-1,1)]
  def Q(i,j,di,dj):
   C=[];A,B=i,j
-  while 0<=A<I and 0<=B<J:C.append((A,B));A+=di;B+=dj
+  while 0<=A<I and 0<=B<J:C+=[(A,B)];A+=di;B+=dj
   return C
  K=[(A,B)for(A,B)in k if A not in(X,Y)]
  if not K:K=k[:]

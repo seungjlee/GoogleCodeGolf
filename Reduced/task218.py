@@ -1,17 +1,18 @@
+R=range
 def p(q):
  r,z=len(q),len(q[0]);d,r,f,G=r,z,-1,-1
- for y in range(r):
-  for o in range(z):
+ for y in R(r):
+  for o in R(z):
    if q[y][o]!=0:
     if y<d:d=y
     if y>f:f=y
     if o<r:r=o
     if o>G:G=o
  if f<0:return[[]]
- N=[tuple(q[y][r:G+1])for y in range(d,f+1)];H=[];z=None
- for o in N:
-  if o!=z:H.append(o);z=o
- p=list(zip(*H))if H else[];J=[];z=None
- for o in p:
-  if o!=z:J.append(o);z=o
+ H=[];z=None
+ for o in [tuple(q[y][r:G+1])for y in R(d,f+1)]:
+  if o!=z:H+=[o];z=o
+ J=[];z=None
+ for o in list(zip(*H))if H else[]:
+  if o!=z:J+=[o];z=o
  return[list(y)for y in zip(*J)]
