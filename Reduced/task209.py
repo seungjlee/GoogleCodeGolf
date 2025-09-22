@@ -14,11 +14,11 @@ def p(g):
     while M:
      N,O=M.pop();P=G[N][O]
      if u and P!=V or K and P==Q:continue
-     L.append((P,(N,O)))
+     L+=[(P,(N,O))]
      for(W,X)in S:
       I,J=N+W,O+X
-      if 0<=I<E and 0<=J<F and not A[I][J]:A[I][J]=D;M.append((I,J))
-    if L:R.append(L)
+      if 0<=I<E and 0<=J<F and not A[I][J]:A[I][J]=D;M+=[(I,J)]
+    if L:R+=[L]
   return R
  def G(x):A=x;return[A for(B,A)in A]if A and isinstance(A[0],tuple)and isinstance(A[0][1],tuple)else list(A)
  def R(x):return min(A for(B,A)in G(x))
@@ -34,7 +34,7 @@ def p(g):
   C,D=set(),[]
   for E in cont:
    for(F,(A,B))in E:
-    if(A,B)not in C:C.add((A,B));D.append((F,(A,B)))
+    if(A,B)not in C:C.add((A,B));D+=[(F,(A,B))]
   return D
  def A7(x,f):
   A=x
@@ -42,7 +42,7 @@ def p(g):
   B=[]
   for(C,(D,E))in A:
    for F in r(f):
-    for G in r(f):B.append((C,(D*f+F,E*f+G)))
+    for G in r(f):B+=[(C,(D*f+F,E*f+G))]
   return B
  def A8(G,obj):
   A=[A[:]for A in G]
@@ -68,11 +68,11 @@ def p(g):
   for B in H:
    L,Z,M,a=G[B];N,b,O,c=F[B];P=a-M+1;Q=Z-L+1;R=c-O+1;S=b-N+1
    if P<=0 or Q<=0 or R<=0 or S<=0:return
-   d=max(1,q(R,P));e=max(1,q(S,Q));I.append(d);J.append(e);A.append((L,M,N,O));T=Y.get(B,0);f=i.get(B,0)
+   d=max(1,q(R,P));e=max(1,q(S,Q));I+=[d];J+=[e];A+=[(L,M,N,O)];T=Y.get(B,0);f=i.get(B,0)
    if T>0:
     C=1
     while T*C*C<f:C+=1
-    K.append(C)
+    K+=[C]
   U=I+J+K;D=max(U)if U else 0
   if D<=0:return
   V=[C-A*D for(A,B,C,B)in A];W=[C-B*D for(A,B,A,C)in A];g=min(V)if V else 0;h=min(W)if W else 0;return D,(g,h),A
@@ -92,12 +92,12 @@ def p(g):
     while K:
      G,H=K.popleft()
      if A[G][H]!=N or A[G][H]==J:continue
-     L.append((A[G][H],(G,H)))
+     L+=[(A[G][H],(G,H))]
      for(P,Q)in((1,0),(-1,0),(0,1),(0,-1)):
       B,C=G+P,H+Q
       if 0<=B<V and 0<=C<W and not I[B][C]:
-       if A[B][C]==N and A[B][C]!=J:I[B][C]=D;K.append((B,C))
-    if L:M.append(L)
+       if A[B][C]==N and A[B][C]!=J:I[B][C]=D;K+=[(B,C)]
+    if L:M+=[L]
   return M
  A=A6(AE(H));AY=set(G(A));AF,AG=(K(A),L(A))if A else(0,0);AH,AI=n(A)if A else(0,0);AJ=p(A);AL=CU(A for(A,B)in A);X={(B,C):A for(A,(B,C))in A}
  def Y(o,m):
@@ -114,8 +114,8 @@ def p(g):
  for N in AD or[]:
   if not N:continue
   u=A5(N);v=AA(u,AJ,AL);O=[]
-  if v:a,b,I=v;O.append((a,b,I));O.append((a+1,AM(I,a+1),I))
-  else:c,d=K(N),L(N);AN=(AF+c-1)//c if c else 1;AO=(AG+d-1)//d if d else 1;P=max(1,AN,AO);O.append((P,(AH,AI),C))
+  if v:a,b,I=v;O+=[(a,b,I)];O+=[(a+1,AM(I,a+1),I)]
+  else:c,d=K(N),L(N);AN=(AF+c-1)//c if c else 1;AO=(AG+d-1)//d if d else 1;P=max(1,AN,AO);O+=[(P,(AH,AI),C)]
   for(P,(AP,AQ),I)in O:
    if P<=0:continue
    e=A7(u,P);w,AR=L(e),K(e);f=z(B)-w;h=z(B[0])-AR

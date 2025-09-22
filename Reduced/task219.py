@@ -1,6 +1,4 @@
-L=len
-S=sorted
-T=tuple
+L=len;S=sorted;T=tuple;R=range
 def p(g):
  if not g or not g[0]:return[A[:]for A in g]
  B=[A[:]for A in g];H,I=L(B),L(B[0]);from collections import Counter as Z
@@ -13,8 +11,8 @@ def p(g):
     if 0<=C<H and 0<=D<I:yield(C,D)
  def b(g):
   A=g;P=Q(A);J,K=L(A),L(A[0]);D=set();l=[]
-  for E in range(J):
-   for F in range(K):
+  for E in R(J):
+   for F in R(K):
     if(E,F)in D:continue
     G=A[E][F]
     if G==P:continue
@@ -39,8 +37,8 @@ def p(g):
  u=[(B,A)for(A,B)in t.items()]
  if not u:return[A[:]for A in B]
  D=S(u,key=lambda cp:(C(cp[1]),J(cp[1])[1]));l=C(D[0][1]);E=l
- for V in range(l+1,H):
-  if any(B[V][A]!=s for A in range(I)):E=V
+ for V in R(l+1,H):
+  if any(B[V][A]!=s for A in R(I)):E=V
   elif E>=l:break
  F=set();M=D[0][0]
  for(K,A)in D:

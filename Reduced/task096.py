@@ -1,4 +1,4 @@
-m=max;x=min;l=len;r=range;s=set;T=tuple
+m=max;x=min;l=len;r=range;s=set;T=tuple;a=abs
 def c(e):A=e;B=[B for A in A for B in A]if isinstance(A,(T,list))else[A[0]for A in A];return m(s(B),key=B.count)
 def n(lc):A,B=lc;return{(A-1,B-1),(A-1,B),(A-1,B+1),(A,B-1),(A,B+1),(A+1,B-1),(A+1,B),(A+1,B+1)}
 def j(g):

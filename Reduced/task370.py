@@ -3,12 +3,14 @@ S=sorted
 T=tuple
 X=list
 Y=len
+m=min
+M=max
 def se(I):
  if not I or not I[0]:return I
- D,E=Y(I),Y(I[0]);x=[B for A in I for B in A];y=min(set(x),key=x.count);C={(A,B)for A in R(D)for B in R(E)if I[A][B]==0}
+ D,E=Y(I),Y(I[0]);x=[B for A in I for B in A];y=m(set(x),key=x.count);C={(A,B)for A in R(D)for B in R(E)if I[A][B]==0}
  if not C:return I
  r={(A,B)for A in R(D)for B in R(E)if I[A][B]==y}
- def Z(x):A=[A for(A,B)in x];B=[A for(B,A)in x];return min(A),min(B),max(A),max(B)
+ def Z(x):A=[A for(A,B)in x];B=[A for(B,A)in x];return m(A),m(B),M(A),M(B)
  def a(x):A,B,C,D=Z(x);return(A+C)//2,(B+D)//2
  def g(x,y):
   A,B=x;C,D=y;E=[]
@@ -33,7 +35,7 @@ def se(I):
  U = F.update
  if c:
   for H in R(1,5):
-   A,B=H*J[0],H*J[1];d,m,e,n=s+A,t+B,u+A,V+B;K=0<=d and e<D;L=0<=m and n<E
+   A,B=H*J[0],H*J[1];d,w,e,n=s+A,t+B,u+A,V+B;K=0<=d and e<D;L=0<=w and n<E
    if K and L:U({(C+A,D+B)for(C,D)in C});continue
    if H==1:U({(C+A,F+B)for(C,F)in C if 0<=C+A<D and 0<=F+B<E});break
    if not K and L:U({(C+A,E+B)for(C,E)in C if 0<=C+A<D})

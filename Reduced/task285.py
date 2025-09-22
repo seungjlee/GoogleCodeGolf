@@ -1,4 +1,4 @@
-Is=isinstance
+Is=isinstance;z=len;n=min;x=max;s=set;t=list
 R=range
 from collections import deque,Counter as Ct
 def mc(x):
@@ -13,7 +13,7 @@ def n8(i,j):
    if A==0 and B==0:continue
    yield(i+A,j+B)
 def Ob(g,d=1,w=1):
- E=w;C=g;F,G=len(C),len(C[0]);L=mc(C)if E else None;D=[[0]*G for A in R(F)];O=[];Q=n8 if d else lambda i,j:((i-1,j),(i+1,j),(i,j-1),(i,j+1))
+ E=w;C=g;F,G=z(C),z(C[0]);L=mc(C)if E else None;D=[[0]*G for A in R(F)];O=[];Q=n8 if d else lambda i,j:((i-1,j),(i+1,j),(i,j-1),(i,j+1))
  for H in R(F):
   for I in R(G):
    if D[H][I]:continue
@@ -25,14 +25,14 @@ def Ob(g,d=1,w=1):
     if not(0<=A<F and 0<=B<G)or D[A][B]:continue
     P=C[A][B]
     if E and P==L:D[A][B]=1;continue
-    D[A][B]=1;M.append((P,(A,B)))
+    D[A][B]=1;M+=[(P,(A,B))]
     for(J,K)in Q(A,B):
      if 0<=J<F and 0<=K<G and not D[J][K]:
-      if not E or C[J][K]!=L:N.append((J,K))
-   if M:O.append(M)
+      if not E or C[J][K]!=L:N+=[(J,K)]
+   if M:O+=[M]
  return O
 def co(a):return[A for(B,A)in a]
-def bb(A):B=[A for(A,B)in A];C=[A for(B,A)in A];return min(B),min(C),max(B),max(C)
+def bb(A):B=[A for(A,B)in A];C=[A for(B,A)in A];return n(B),n(C),x(B),x(C)
 def hw(x):A,B,C,D=bb(x);return C-A+1,D-B+1
 def ce(x):A,B,C,D=bb(x);return A+(C-A)//2,B+(D-B)//2
 def po(ia,ib):
@@ -43,7 +43,7 @@ def po(ia,ib):
  if A>C:return-1,1 if B<D else-1
  return 0,0
 def ad(l,o):
- A,B=l;C=set(o)
+ A,B=l;C=s(o)
  for(D,E)in((A-1,B),(A+1,B),(A,B-1),(A,B+1)):
   if(D,E)in C:return 1
  return 0
@@ -57,7 +57,7 @@ def vm(x):
  F,C,G,D=bb(B);E=C+D;return[(A,(B,E-C))for(A,(B,C))in A]
 def sh(x,d):A,B=d;return[(C,(D+A,E+B))for(C,(D,E))in x]
 def Pa(g,c):
- A=g;F,G=len(A),len(A[0]);B=[A[:]for A in A]
+ A=g;F,G=z(A),z(A[0]);B=[A[:]for A in A]
  for(C,(D,E))in c:
   if C!=0 and 0<=D<F and 0<=E<G:B[D][E]=C
  return B
@@ -69,7 +69,7 @@ def fn(g,i):
  for(A,B)in C:return g[A][B]
  return 0
 def p(I):
- D=[list(A)for A in I];W=Ob(D,1,1);B=[A[:]for A in D];J=[];K=[];L=[]
+ D=[t(A)for A in I];W=Ob(D,1,1);B=[A[:]for A in D];J=[];K=[];L=[]
  for A in W:
   if not A:continue
   C=mc(A);P=[A for A in A if A[0]==C];X=[A for A in A if A[0]!=C];E=[A for(B,A)in X];Q=[A for(B,A)in P];F=None

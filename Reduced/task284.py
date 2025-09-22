@@ -16,11 +16,11 @@ def sb(I):
     while l:
      M,N=l.pop()
      if G[M][N]!=K:continue
-     O.append((M,N))
+     O+=[(M,N)]
      for(P,q)in((1,0),(-1,0),(0,1),(0,-1)):
       C,D=M+P,N+q
-      if 0<=C<F and 0<=D<H and not E[C][D]and G[C][D]==K:E[C][D]=J;l.append((C,D))
-    I.append((O,K))
+      if 0<=C<F and 0<=D<H and not E[C][D]and G[C][D]==K:E[C][D]=J;l+=[(C,D)]
+    I+=[(O,K)]
   I.sort(key=lambda t:min(A for(A,B)in t[0]));return I
  def C(a,b):
   A,C=a;B,D=b

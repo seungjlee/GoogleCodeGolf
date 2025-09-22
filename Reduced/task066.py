@@ -1,30 +1,30 @@
-_A=None;m=min;e=enumerate
+_A=None;m=min;e=enumerate;z=len;w=abs;q=set
 from copy import deepcopy as dc
-def ib(g,r,c):return 0<=r<len(g)and 0<=c<len(g[0])
+def ib(g,r,c):return 0<=r<z(g)and 0<=c<z(g[0])
 def n4(r,c):return[(r+1,c),(r-1,c),(r,c+1),(r,c-1)]
 def add(a,b):return a[0]+b[0],a[1]+b[1]
 def sub(a,b):return a[0]-b[0],a[1]-b[1]
 def norm1(d):return 0 if d[0]==0 else 1 if d[0]>0 else-1,0 if d[1]==0 else 1 if d[1]>0 else-1
 def rl(d):return-d[1],d[0]
 def rr(d):return d[1],-d[0]
-def man(a,b):return abs(a[0]-b[0])+abs(a[1]-b[1])
+def man(a,b):return w(a[0]-b[0])+w(a[1]-b[1])
 def fpos(g,val):return[(A,C)for(A,B)in e(g)for(C,D)in e(B)if D==val]
 def c4(g,positions):
- A=set(positions);E=[]
+ A=q(positions);E=[]
  while A:
   F=A.pop();D=[F];G=[F]
   while D:
    H,I=D.pop()
    for(B,C)in n4(H,I):
-    if(B,C)in A:A.remove((B,C));D.append((B,C));G.append((B,C))
-  E.append(G)
+    if(B,C)in A:A.remove((B,C));D+=[(B,C)];G+=[(B,C)]
+  E+=[G]
  return E
 def cgd(goals,p):A=goals;return m(man(p,A)for A in A)if A else 10**9
 def ifp(val):return val==0 or val==3
 def csad(g,greens,reds):
  F=greens
  if not F or not reds:return
- M=c4(g,F);E=m(M,key=lambda comp:(len(comp),cgd(reds,(round(sum(A for(A,B)in comp)/len(comp)),round(sum(A for(B,A)in comp)/len(comp))))));B=_A;N=set(E)
+ M=c4(g,F);E=m(M,key=lambda comp:(z(comp),cgd(reds,(round(sum(A for(A,B)in comp)/z(comp)),round(sum(A for(B,A)in comp)/z(comp))))));B=_A;N=q(E)
  for(G,H)in E:
   for(I,J)in n4(G,H):
    if(I,J)in N:B=(G,H),(I,J);break
@@ -41,7 +41,7 @@ class R:
  __slots__='pred','path','steps','dmin','dend','bounces','start','start_dir'
  def __init__(A,pred,path,steps,dmin,dend,bounces,start,start_dir):A.pred=pred;A.path=path;A.steps=steps;A.dmin=dmin;A.dend=dend;A.bounces=bounces;A.start=start;A.start_dir=start_dir
 def rws(g,start,d,reds):
- M=start;J=reds;T,U=len(g),len(g[0]);C=dc(g);G=set();K=0;A=M;D=d;N=[A];H=cgd(J,A);O=H;L=0
+ M=start;J=reds;T,U=z(g),z(g[0]);C=dc(g);G=q();K=0;A=M;D=d;N=[A];H=cgd(J,A);O=H;L=0
  while K<T*U*10:
   K+=1;F=add(A,D)
   if ib(g,*F)and C[F[0]][F[1]]==2:break
@@ -56,7 +56,7 @@ def rws(g,start,d,reds):
    P,W=rl(D),rr(D);I=[]
    for Q in(P,W):
     B=add(A,Q)
-    if ib(g,*B)and ifp(C[B[0]][B[1]]):I.append((cgd(J,B),Q,B))
+    if ib(g,*B)and ifp(C[B[0]][B[1]]):I+=[(cgd(J,B),Q,B)]
    if I:
     I.sort(key=lambda x:(x[0],0 if x[1]==P else 1));Y,X,B=I[0];D=X;A=B
     if C[A[0]][A[1]]==0:C[A[0]][A[1]]=3
@@ -72,12 +72,12 @@ def rws(g,start,d,reds):
      if E in G:break
      G.add(E);L+=1
     else:break
-  N.append(A);S=cgd(J,A);H=m(H,S);O=S
+  N+=[A];S=cgd(J,A);H=m(H,S);O=S
  return R(C,N,K,H,O,L,M,d)
 def dss(g):
  D=fpos(g,2);G=fpos(g,3)
  if not D or not G:return dc(g)
- P=c4(g,G);E=m(P,key=lambda comp:(len(comp),cgd(D,(round(sum(A for(A,B)in comp)/len(comp)),round(sum(A for(B,A)in comp)/len(comp))))));A=_A;Q=set(E)
+ P=c4(g,G);E=m(P,key=lambda comp:(z(comp),cgd(D,(round(sum(A for(A,B)in comp)/z(comp)),round(sum(A for(B,A)in comp)/z(comp))))));A=_A;Q=q(E)
  for(H,I)in E:
   for(J,K)in n4(H,I):
    if(J,K)in Q:A=(H,I),(J,K);break
@@ -92,8 +92,8 @@ def dss(g):
  B,C=A;F=norm1(sub(C,B));O=[rws(g,C,F,D),rws(g,B,(-F[0],-F[1]),D)];O.sort(key=lambda r:(r.dend,r.bounces,r.dmin,r.steps));return O[0].pred
 def dastbr(g):
  D=fpos(g,2);E=fpos(g,3)
- if len(D)!=2 or len(E)!=2:return
- def H(ps):(A,B),(C,D)=sorted(ps);return B==D and abs(A-C)==1
+ if z(D)!=2 or z(E)!=2:return
+ def H(ps):(A,B),(C,D)=sorted(ps);return B==D and w(A-C)==1
  if not(H(D)and H(E)):return
  (I,F),(J,P)=sorted(E);(K,G),(L,P)=sorted(D)
  if{I,J}!={K,L}:return

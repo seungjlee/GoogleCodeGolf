@@ -1,5 +1,7 @@
 S=sorted
 T=tuple
+z=len
+j=range
 def w(I):
  J=0;F=None;A=1
  def a(G):A=[B for A in G for B in A];return max(set(A),key=A.count)
@@ -8,24 +10,24 @@ def w(I):
  def d(G):return T(T(A[::-1])for A in G)
  def B(idx):A=[A for(A,B)in idx];B=[A for(B,A)in idx];return min(A),min(B),max(A),max(B)
  def K(idx):A,C,D,E=B(idx);return A+(D-A)//2,C+(E-C)//2
- def e(G,u,l,d,r):return T(T(G[A][l:r+1])for A in range(u,d+1))
+ def e(G,u,l,d,r):return T(T(G[A][l:r+1])for A in j(u,d+1))
  def P(G,obj):
   A=[list(A)for A in G]
   for(D,(B,C))in obj:
-   if 0<=B<len(A)and 0<=C<len(A[0]):A[B][C]=D
+   if 0<=B<z(A)and 0<=C<z(A[0]):A[B][C]=D
   return T(T(A)for A in A)
  def Q(x,di,dj):return{(A,(B+di,C+dj))for(A,(B,C))in x}
  def D(G,u,i):
-  B=i;C=a(G)if B else F;D,E=len(G),len(G[0])
+  B=i;C=a(G)if B else F;D,E=z(G),z(G[0])
   if u:
-   J=S({G[A][D]for A in range(D)for D in range(E)if not B or G[A][D]!=C});I=[]
+   J=S({G[A][D]for A in j(D)for D in j(E)if not B or G[A][D]!=C});I=[]
    for H in J:
     if B and H==C:continue
-    A=[(A,B)for A in range(D)for B in range(E)if G[A][B]==H]
-    if A:I.append({(H,(A,B))for(A,B)in A})
+    A=[(A,B)for A in j(D)for B in j(E)if G[A][B]==H]
+    if A:I+=[{(H,(A,B))for(A,B)in A}]
    return I
   else:
-   A=[(A,D)for A in range(D)for D in range(E)if not B or G[A][D]!=C]
+   A=[(A,D)for A in j(D)for D in j(E)if not B or G[A][D]!=C]
    if B:A=[(A,B)for(A,B)in A if G[A][B]!=C]
    if not A:return[]
    return[{(G[A][B],(A,B))for(A,B)in A}]
