@@ -7,6 +7,6 @@ def p(j):
     l=J=1
     while W+l<c and j[k][W+l]:l+=1
     while k+J<A and j[k+J][W]:J+=1
-    a=[k[W:W+l]for k in j[k:k+J]];C=sum(k.count(2)for k in a)
+    a=[r[W:W+l]for r in j[k:k+J]];C=sum(r.count(2)for r in a)
     if C>E:E=C;e=a
  return e
