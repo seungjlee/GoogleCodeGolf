@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚmÍÃ0ÆñW	 YStys8Î1Y6{÷]+c ÈïÿÝ7³Ûê÷$T®ÙEòn¹Øê|ànsÀ	Èlw1d¸hD7ÓÌëTðíRêÎóà|ð¦ñgê[3.kP2EShÌ²§ðÉ»/"¶1ý½È<yþ#H«X$× qãòÕP»',"L1")))
+def p(t,p=range):a,i=len(t),len(t[0]);r=[-1]+[a for a in p(a)if len({*t[a]})==1]+[a];r=[-1]+[i for i in p(i)if len({t[a][i]for a in p(a)})==1]+[i];d=[[t[a+1][i+1]for(i,r)in zip(r,r[1:])if i+1<r-1]for(a,i)in zip(r,r[1:])if a+1<i-1];return[a[::-1]for a in d]

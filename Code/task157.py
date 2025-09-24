@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚMfA_e`+£«ÝÃíÍ½HK7L:Ò.mõá;ca!~>É÷çmPÁðV¦èÙW{ßÒ4/%î,ãby!°[&	$9²|x° ÖFÒc×UB!áûÄÉÛã	O×=ghÈGª¡Ãz@iâç¤¨ú|*TñÑÝ¾}ín¡¬ß@ñW+DXíêEÆ¢½IôR½_k:â_¿5Ì8¼|ÍÈQÏ¿à?"5S`',"L1")))
+def p(n):p,i,*r=range,15;m=sum(n,[]);n=[[]];[(n:=[n+[(f,r)]for n in n for f in p(45)if m[f]<1],r:=[])for f in p(16)if r==(r:=r+[p for p in p(f,150,i)if(i>f)&m[p]])>[]];return max([*zip(*[((any(p-f+min(n)in n*(f%i-p%i<6)for f,n in n)|m[p]%5)%3for p in p(150))]*i)]for n in n)

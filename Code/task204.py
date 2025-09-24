@@ -1,3 +1,21 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚU1ã kçWÐ²²·9	<[XÚ¤M²Ñn(Èû"@àè¤üúcå|ùñ{zôz@mª==ÀMÛÔÐùµ$üÂ	&CÆ¢Qòb¯nQËz^eG÷DòO¸¡5¡xW6ów×¹©òF¿ÚÈÒ3ÿàaÐè¥ýrv2ö®3¾ÀX(÷Iª§1.sp	wÍÍ+ çWx@Ì~Fåº4õÎcûìOô$e¢r´¸hØ~Õ-¸vísÙµ¹´nJ^ÌíXJËò§j¹,ý«ò^Ûã¤@7ÿ÷e%¹V1nÞ6¬A×^Ùºx°GGvjÛð3<v×m³Dz8Ïó+p|9ßðòÀ7é[Ôèç3WÆ°SÊY	ß*èé,:ýie',"L1")))
+def p(g):
+	F,G=len(g),len(g[0]);Q=[o[:]for o in g];E=[[False]*G for o in range(F)];S=[(1,0),(-1,0),(0,1),(0,-1)]
+	for d in range(F):
+		for s in range(G):
+			if E[d][s]:continue
+			T=g[d][s];p=[(d,s)];E[d][s]=True;i=[(d,s)];a=f=d;b=z=s
+			while p:
+				s,r=p.pop()
+				for(t,V)in S:
+					o,B=s+t,r+V
+					if 0<=o<F and 0<=B<G and not E[o][B]and g[o][B]==T:
+						E[o][B]=True;p.append((o,B));i.append((o,B))
+						if o<a:a=o
+						if o>f:f=o
+						if B<b:b=B
+						if B>z:z=B
+			P=f-a+1;R=z-b+1
+			if P==R and len(i)==P*R:
+				W=2 if P%2==0 else 7
+				for(s,r)in i:Q[s][r]=W
+	return Q

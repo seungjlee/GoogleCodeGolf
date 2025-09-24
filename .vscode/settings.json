@@ -19,6 +19,7 @@
         "--disable=W0611", // unused-import
         "--disable=W1201", // logging-not-lazy
         "--disable=W1203", // logging-fstring-interpolation
+        "--disable=W1204", // eval-used
 
         "--disable=R0201", // no-self-argument
         "--disable=R0901", // too-many-ancestors

@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚ]!_%`ÿÝ-vwáöE~!×_"ÝÉ=þUà,2ÍgjÆgo³ÜicÉ+Kí:ûWaÄbÃäfX±9<¨ÿ zfSq°Êö!ÛC³ÌÜBHR·:8õKn¶Ù1ªô)qÒxRÃ®k7èVêª­ó¾eßîc¬Ô­Ö`m­ªÐç[Ú£²J¬',"L1")))
+def p(i):g,d=[(2*n+e-1,2*x+e-1)for e in(3,2)for n in range(8)for x in range(8)if all(all(a[x:x+e])for a in i[n:n+e])][0];[(l:=2*n-g,e:=2*x-d)and exec('l,e=-e,l;i[g+l>>1][d+e>>1]=a;'*3)for n in range(10)for x in range(10)if(a:=i[n][x])];return i

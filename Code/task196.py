@@ -1,3 +1,12 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚeÁÎ ÇÏúôÆÔ±Ñö¦ËwÚ½ì9ÅWf7º$íÛ°iý.þø3üÙ,â)WhòÌ©}ä¦=Ð¨Íp®ÚIæ%¡õJ³nhyìe±R=6ô±Kf´{©ÇKVµ]1ò,ÂÒ_Uo¤=}Qu³ßYS8=}çY¦ÐþåéÃ;©Ã=£/ÉèÀ@Yc(ÏoeJ\rD¨	ò,ê^£®Gà~AÔFWÒwRªªòwö15¥HÆêhÛ¡Åå,KÖÕÿq0 }f)W¿çÞY"qìJ}ÿ*mÙCÙCýèD¬ÃGêÈ¿åªô+ñ¯]Q£¦ôp¾4½^ÞpxiãõôBêGóþ',"L1")))
+def p(j):
+	m=range;s,e=len(j),len(j[0]);c=set();u=[n[:]for n in j]
+	def p(l,u):
+		if(l,u)in c or not(0<=l<s and 0<=u<e)or j[l][u]!=1:return[]
+		c.add((l,u));return[(l,u)]+sum([p(l+n,u+m)for(n,m)in[(-1,0),(1,0),(0,-1),(0,1)]],[])
+	for D in m(s):
+		for k in m(e):
+			if j[D][k]==1 and(D,k)not in c:
+				n=p(D,k);F,i,H,I=min(n[0]for n in n),max(n[0]for n in n),min(n[1]for n in n),max(n[1]for n in n)
+				if len(n)==2*(i-F+I-H)and i>F and I>H and any(j[n][c]==0 for n in m(F+1,i)for c in m(H+1,I)):
+					for(N,f)in n:u[N][f]=3
+	return u

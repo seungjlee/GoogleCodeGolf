@@ -1,3 +1,15 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚ]Ín0Ïð>Úa GèF2ÿ -RD#Ú^úô]Çj½Ø«Ùogæû´½ÍîïóæÞæ=ø$"×9AghçX`ì°ÇÀu÷lÝØïTHØ!kûbÌ"%XÈPÒã	â 5¾×¯`RÚX$øÔ¿Hé`#¤H½ÐF8ëÂäkÊ¦íÆj%5EÏõ|ÿ-è(ý&g~IçÁÊd0ssF	Ô%ÚÇBD9ÐÂ:è1Jh éö¸AéÔúíóç×¾)©.Qïú¯ì¤Ú¨#ASPÁL¥ÝlôaR',"L1")))
+R=range
+L=len
+def p(a):
+	K,C=L(a),L(a[0]);E=F=M=N=O=P=0
+	for G in R(K):
+		H=[0]*C;I=[0]*C
+		for D in R(G,K):
+			H=[A+(B==2)for(A,B)in zip(H,a[D])];I=[A+(B==0)for(A,B)in zip(I,a[D])];B=J=0
+			for A in R(C+1):
+				if A<C and I[A]==0:B+=H[A]
+				else:
+					Q=A-J;S=(D-G+1)*Q
+					if Q and(B>E or B==E and S>F):E,F,M,N,O,P=B,S,G,J,D,A-1
+					J=A+1;B=0
+	return[A[N:P+1]for A in a[M:O+1]]if F else[]

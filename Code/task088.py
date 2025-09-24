@@ -1,3 +1,13 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚOÁjÄ <ëWx4mX²ÐSÂëEö+DÕâ&OÅèç÷%.e{)óÆ7¾$cg7Öâ"æTê¿Âì"Plütüæ¼È³è |*">`0Ã*­±º"/Í	ÓR?Æ¢lh¤Õ®UvÁ¥ÏàÍèn;ÃÒf¸RFK½Á6mìî/-&Dä`äÚ­ÀÔûÍÙÅÔ¶U¦áÌ(u ¸e=ù¯öëÞúî7ßõÏ<¥¿û»!HcGx}Hð¹Ú?[½wýÑoâ¬¸º(ðÑz',"L1")))
+from collections import*
+b=len
+i=range
+def p(m):
+	E=[i for i in m for i in i];k=Counter(E).most_common();k=[C for C in k if C[1]==4][0][0];s,p=b(m),b(m[0]);f=[]
+	for a in i(s):
+		for C in i(p):
+			if m[a][C]==k:f.append([a,C])
+	e=min([i[1]for i in f]);u=max([i[1]for i in f]);a=min([i[0]for i in f]);j=max([i[0]for i in f]);m=m[a+1:j];m=[i[e+1:u]for i in m];s,p=b(m),b(m[0])
+	for a in i(s):
+		for C in i(p):
+			if m[a][C]>0:m[a][C]=k
+	return m

@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚMMÄPnånù´6¢6Öí¤úXf~[öÖ?¿÷H8Êy"ó%üñzÝÈÂ_4\\SÔÊtþââá5ÿ¯_´ÆÑl¶¾_ùìóOÈ=²ñÇÅ0j!Èà#¬æÚ·ÔVàk\rº¾Ê°l×î5ÿËma7£Õ\x00RÔÂÖ;¦',"L1")))
+p=lambda g,A=range:(lambda c,e:[[5if x%4==3or y%4==3else g[c*4+x//4][e*4+y//4]for y in A(11)]for x in A(11)])(*next((c,e)for c in A(3)for e in A(3)if sum(g[c*4+w][e*4+l]==0 for w in A(3)for l in A(3))==5))

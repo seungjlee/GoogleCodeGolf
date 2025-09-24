@@ -1,3 +1,23 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚmO0Åï~¹,D¢`Ü^z*èÅkÈ¡ØmºD>ýN¢Ý¶a|ó{o&6Ü­VQÅ¯ÊFÕÁÑqAÇÇèDÈ8#-tw-IéðÓÞG/,É¥ O&^aFt{£óTCúùðWVC¦]-]¤hé,=±$32Ã3`eXYèöRz^á,dY{Ñp÷á;$Ñ)Ü¹~ÝVW¤Ã;j±JÎs¹Ñ¯¤°,ÞEÏÊ¼X¸KÍ.©ë ¼@\reoÔW^Ì¼}Ò©¬äKÙÃÙ^|;Óshÿ`üøv:ee_à0eÆ3§bó"ñÏMw7ýì¦/7ÝÜNgAÿ]çÑ',"L1")))
+R=range
+L=len
+def p(g):
+ f=sum(g,[])
+ C=[c for c in set(f) if c not in [0,2]][0]
+ h,w=L(g),L(g[0])
+ for r in R(h-1):
+  for c in R(w-1):
+   M=[g[r+y][c+x]for y,x in[[0,0],[0,1],[1,0],[1,1]]]
+   if sum([1 for i in M if i>0])>3:
+    for I in [z for z in R(L(M)) if M[z]==2]:
+     for i in R(10):
+      if I<2:y=r-i
+      else:y=r+i+1
+      if I%2:x=c+i+1
+      else:x=c-i
+      if 0<=y<h and 0<=x<w:
+       g[y][x]=C
+       if 0<=y-1<h:g[y-1][x]=C
+       if 0<=x-1<w:g[y][x-1]=C
+       if 0<=y+1<h:g[y+1][x]=C
+       if 0<=x+1<w:g[y][x+1]=C
+ return g

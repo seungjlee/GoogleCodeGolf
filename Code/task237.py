@@ -1,3 +1,12 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚUM%Ã@ô÷qaíª"ËÌ|~øÈ,ÎüÌ«;§×ùãÆì?×³5f¸¹eWËíÖ2\\[o÷bóÖªRÈÐÁÇ.;÷®KÏLÈZ/ëY8NIZúSªé}X²^zêãw³<ùàZÇq;',"L1")))
+def p(g,L=len,R=range):
+ h,w=len(g),len(g[0])
+ for r in R(h):
+  s=0
+  for c in R(w):
+   if g[-(r+1)][c]>0:s=g[-(r+1)][c]
+   g[-(r+1)][c]=s
+  s=0
+  for r in R(h):
+   if g[r][-1]>0:s=g[r][-1]
+   g[r][-1]=s
+ return g
