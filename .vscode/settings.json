@@ -13,6 +13,8 @@
         "--disable=C0413", // wrong-import-position
         "--disable=C0415", // import-outside-toplevel
 
+        "--disable=W0012", // 
+        "--disable=W0102", // dangerous-default-value
         "--disable=W0104", // pointless-statement
         "--disable=W0105", // pointless-string-statement
         "--disable=W0311", // bad-indentation
@@ -21,6 +23,7 @@
         "--disable=W1203", // logging-fstring-interpolation
         "--disable=W1204", // eval-used
 
+        "--disable=R0022", // 
         "--disable=R0201", // no-self-argument
         "--disable=R0901", // too-many-ancestors
         "--disable=R0902", // too-many-instance-attributes
