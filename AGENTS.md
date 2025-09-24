@@ -17,8 +17,9 @@
 - Apply conservative optimizations first (trailing whitespace, safe spacing).
 - Use function aliasing only when benefits clearly outweigh overhead.
 - Test syntax with `compile()` before applying changes.
-- Implement rollback mechanisms for failed optimizations.
-- Replace all tabs with spaces but make sure indentations are still correct.
+- Implement rollback mechanisms for failed optimizations. Use 'git restore' if needed.
+- Remove unused code and unused variables.
+- Replace all tabs with spaces but make sure indentations are still correct. Single space indentation.
 - Remove all trailing spaces.
 - Remove all extra end of line characters at the end of file.
 - Shorten function names.
